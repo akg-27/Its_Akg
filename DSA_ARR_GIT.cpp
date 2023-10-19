@@ -27,7 +27,11 @@ void addval(int t[],int s,int c)
         if (c==s-1)
                 cout<<"Array is full";
         else
-                cout<<"Enter value to be inserted :";cin>>t[++c];
+        {
+                cout<<"Enter value to be inserted :";
+                c=c+1;
+                cin>>t[c];
+        }
 }
 
 void delbypos(int t[],int &c)
@@ -117,6 +121,37 @@ int highval(int t[],int c)
     return(m);
 }
 
+void revarr(int t[],int s,int d) 
+{
+        int temp;  
+        for(int i=0;i<(d-s+1)/2;i++)
+        {
+                temp=t[s+i];
+                t[s+i]=t[d-i];
+                t[d-i]=temp;
+        }
+}
+
+int secmax(int t[],int c)
+{
+        int fmp=0;
+        int smp=-1;
+        for(int i=1;i<=c;i++)
+        {
+                if(t[i]>t[fmp])
+                {
+                        smp=fmp;
+                        fmp=i;
+                }      
+                else if(t[i]<t[fmp])
+                {
+                        if(i!=smp && t[i] > t[smp])
+                                smp=i;
+                }
+        }
+        return(smp);
+}
+
 int checksort(int t[],int c)
 {
         for(int i=1;i<=c;i++)
@@ -165,11 +200,30 @@ void oddeve(int t[],int &c)
         }
 }
 
+void rotclock1(int t[],int c)
+{
+        int temp=t[c];
+        for(int i=c-1;i>=0;i--)
+                t[i+1]=t[i];
+        t[0]=temp;
+}
+
+void  rotclockmul(int t[],int c)
+{
+        int k;
+        cout<<"Enter no of rotation:";
+        cin>>k;
+        k=k%(c+1);
+        revarr(t,0,c-k);
+        revarr(t,c-k+1,c);
+        revarr(t,0,c);
+}
+
 int main()
 {
         int const size = 10;
-        int a[size] = {1,2,3,4,5,6,7,8,9,10};
-        int cur = 9,n,x,p;
+        int a[size] = {1,2,3,4};
+        int cur = 3,n,x,p;
     
 
                 while(1)
@@ -177,7 +231,7 @@ int main()
                         menu();
                         cout<<"\nEnter your choice :";cin>>n;
 
-                        if(n==16)
+                        if(n==15)
                         exit(0);
 
                         switch(n)
@@ -191,6 +245,10 @@ int main()
                         case 3:cout<<"\nEnter any value:";
 		                cin>>x;
 		                p=searchval(a,cur,x);
+                                if (p==-1)
+                                        cout<<"Value not found..";
+                                else
+                                        cout<<a[p]<<" Found at "<<p+1<<" Position";                        
                                 break;
 
                         case 4:delbyval(a,cur);
@@ -198,18 +256,22 @@ int main()
 
                         case 5:disall(a,cur);
                                 break;
-                        
+                
                         case 6:insele(a,cur,size);
                                 break;
 
                         case 7: p=highval(a,cur);
 		                cout<<"\n Highest element is "<<a[p]<<" at "<<p+1<<" location";
 		                break;
-                        /*case 8:disall(a,cur);
+                        case 8:revarr(a,0,cur);
                                 break;
 
-                        case 9:addval(a,size,cur);
-                                break;*/
+                        case 9:p=secmax(a,cur);
+                                if(p==-1)
+                                        cout<<"\nNot having second highest element";
+                                else
+                                        cout<<"\n Second highest value is "<<a[p]<<" at "<<p<<" location";
+                                break;
                         
                         case 10:x=checksort(a,cur);
                                 if(n==1)
@@ -224,17 +286,11 @@ int main()
                         case 12:oddeve(a,cur);
                                 break;
 
-                       /*case 13:addval(a,size,cur);
+                        case 13:rotclock1(a,cur);
                                 break;
                         
-                        case 14:delbypos(a,cur);
+                        case 14:rotclockmul(a,cur);
                                 break;
-
-                        case 15:delbyval(a,cur);
-                                break;
-
-                        case 16:disall(a,cur);
-                                break; */
 
                         default:
                                 cout<<"\nInvalid Choice";
