@@ -1,6 +1,7 @@
-#include<iostream>
+#include<iostream>                              // Header file included
 using namespace std;
 
+                                                // Menu of Operations which can be done in Array
 void menu()
 {
     cout<<"\n\t\tAll Array Operations\t\t\n"<<endl;
@@ -18,11 +19,15 @@ void menu()
     cout<<"12. Move even and odd in different sides of Array"<<endl;
     cout<<"13. Rotate Clock wise one time "<<endl;
     cout<<"14. Rotate Clock wise n times "<<endl;
-    cout<<"15. Exit the Program"<<endl;
+    cout<<"15. Display leaders of Array "<<endl;
+    cout<<"16. Maximum difference in -> of Array "<<endl;
+    cout<<"17. Frequency of Elements for sorted Array "<<endl;
+    cout<<"20. Exit the Program"<<endl;
 
 }
 
-void addval(int t[],int s,int c)
+                                                // Adding a Value in the End of an Array
+void addval(int t[],int s,int &c)
 {
         if (c==s-1)
                 cout<<"Array is full";
@@ -34,6 +39,7 @@ void addval(int t[],int s,int c)
         }
 }
 
+                                                // Delete a value of Array by asking Position through User
 void delbypos(int t[],int &c)
 {
         int p;
@@ -52,6 +58,7 @@ void delbypos(int t[],int &c)
         }
 }
 
+                                                // Searching a Value in Array asked by user 
 int searchval(int t[],int c,int x)
 {
         for(int i=0;i<=c;i++)
@@ -62,6 +69,7 @@ int searchval(int t[],int c,int x)
         return(-1);
 }
 
+                                                // Delete a value by Asking from user
 void delbyval(int t[],int &c)
 {
         int x,in;
@@ -79,6 +87,7 @@ void delbyval(int t[],int &c)
         }
 }
 
+                                                // To Display all Element of Array
 void disall(int t[],int c)
 {
         cout<<"\n";
@@ -86,6 +95,7 @@ void disall(int t[],int c)
                 cout<<t[i]<<"   ";
 }
 
+                                                // Insert an Element at Positon asked by User
 void insele(int t[],int &c,int s)
 {
         int n,pos,j;
@@ -110,6 +120,7 @@ void insele(int t[],int &c,int s)
                 cout<<"\nInvalid position";
 }
 
+                                                // Finding Highest Value in an Array
 int highval(int t[],int c)
 {
         int m=0;
@@ -121,6 +132,7 @@ int highval(int t[],int c)
     return(m);
 }
 
+                                                // Operation to Reverse an Array
 void revarr(int t[],int s,int d) 
 {
         int temp;  
@@ -132,6 +144,7 @@ void revarr(int t[],int s,int d)
         }
 }
 
+                                                // Operation to Find Second Highest Value in an Array
 int secmax(int t[],int c)
 {
         int fmp=0;
@@ -152,6 +165,7 @@ int secmax(int t[],int c)
         return(smp);
 }
 
+                                                // Operation to Check if the Array is Sorted or not       
 int checksort(int t[],int c)
 {
         for(int i=1;i<=c;i++)
@@ -162,6 +176,7 @@ int checksort(int t[],int c)
         return(1);
 }
 
+                                                // Operation to remove duplicate element from Sorted Array
 void removedupsorted(int t[],int &c)
 {
         int i,j=0;
@@ -174,6 +189,7 @@ void removedupsorted(int t[],int &c)
         c=j;
 }
 
+                                                // Operation to Seprate Odd & Even Elements at Two Ends of Array
 void oddeve(int t[],int &c)
 {
         int i,j,temp;
@@ -200,6 +216,7 @@ void oddeve(int t[],int &c)
         }
 }
 
+                                                // Operation to Rotate Array 1 time Clockwise
 void rotclock1(int t[],int c)
 {
         int temp=t[c];
@@ -208,6 +225,7 @@ void rotclock1(int t[],int c)
         t[0]=temp;
 }
 
+                                                // Operation to Rotate Array N times Clockwise asked by User
 void  rotclockmul(int t[],int c)
 {
         int k;
@@ -219,22 +237,73 @@ void  rotclockmul(int t[],int c)
         revarr(t,0,c);
 }
 
+                                                // Operation to find Leader of an Array
+void leader(int t[],int c)
+{
+        int max=t[c];
+
+        cout<<max<<" ";
+        for(int i=c-1;i>=0;i--)
+        {
+                if(t[i]>max)
+                {
+                        max=t[i];
+                        cout<<max<<" ";
+                }
+        }
+}
+
+                                                // To find Maximum Differance of Values in Forward Direction of an Array
+int maxdiff(int t[],int c)
+{
+        int max,min;
+        max=t[1]-t[0];
+        min=INT16_MAX;
+
+        for(int i=0;i<=c;i++)
+        {
+                if ((t[i]-min)>max)
+                        max=t[i]-min;
+                if (min>t[i])
+                        min=t[i];
+        }
+        return (max);
+}
+
+                                                // To find Highest Count of an Element in Sorted Array
+void frequencysorted(int t[],int c)
+{
+        int cnt=1;
+        for(int i=1;i<=c;i++)
+        {
+                if(t[i]==t[i-1])
+                        cnt++;
+                else
+                {
+                        cout<<t[i-1]<<"---"<<cnt<<endl;
+                        cnt=1;
+                }
+        }
+        cout<<t[c]<<"---"<<cnt;
+}
+
+                                                // MAIN STARTS
 int main()
 {
         int const size = 10;
-        int a[size] = {1,2,3,4};
-        int cur = 3,n,x,p;
+        int a[size] = {10,20,30,40,50,60,70,80,90,100};
+        int cur = 9,n,x,p;
     
 
-                while(1)
+                while(1)                        // True While
                 {
                         menu();
                         cout<<"\nEnter your choice :";cin>>n;
 
-                        if(n==15)
+                        if(n==20)
                         exit(0);
 
-                        switch(n)
+                        switch(n)               // Switch Case
                         {
                         case 1:addval(a,size,cur);
                                 break;
@@ -292,10 +361,21 @@ int main()
                         case 14:rotclockmul(a,cur);
                                 break;
 
+                        case 15:leader(a,cur);
+                                break;
+
+                        case 16:x=maxdiff(a,cur);
+                                cout<<x<<" is the maximum difference in forward direction..";
+                                break;
+
+                        case 17:frequencysorted(a,cur);
+                                break;
+
                         default:
                                 cout<<"\nInvalid Choice";
                                 break;
                 }
         }
-        return 0;
+        return 0;       
 }
+                                        // MAIN ENDS AND PROGRAM ENDS SUCCESSFULLY
