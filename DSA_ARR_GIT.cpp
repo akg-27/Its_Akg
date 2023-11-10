@@ -26,7 +26,10 @@ void menu()
 
 }
 
+                                        // ALL TIME COMPLEXITY IS IN  BIG OH  NOTATION
+
                                                 // Adding a Value in the End of an Array
+                                                // TIME COMPLEXITY - O(c) 
 void addval(int t[],int s,int &c)
 {
         if (c==s-1)
@@ -40,6 +43,7 @@ void addval(int t[],int s,int &c)
 }
 
                                                 // Delete a value of Array by asking Position through User
+                                                // // TIME COMPLEXITY - O(n) 
 void delbypos(int t[],int &c)
 {
         int p;
@@ -58,7 +62,8 @@ void delbypos(int t[],int &c)
         }
 }
 
-                                                // Searching a Value in Array asked by user 
+                                                // Searching a Value in Array asked by user
+                                                // TIME COMPLEXITY - O(n) 
 int searchval(int t[],int c,int x)
 {
         for(int i=0;i<=c;i++)
@@ -70,6 +75,7 @@ int searchval(int t[],int c,int x)
 }
 
                                                 // Delete a value by Asking from user
+                                                // TIME COMPLEXITY - O(n) 
 void delbyval(int t[],int &c)
 {
         int x,in;
@@ -88,6 +94,7 @@ void delbyval(int t[],int &c)
 }
 
                                                 // To Display all Element of Array
+                                                // TIME COMPLEXITY - O(n) 
 void disall(int t[],int c)
 {
         cout<<"\n";
@@ -96,6 +103,7 @@ void disall(int t[],int c)
 }
 
                                                 // Insert an Element at Positon asked by User
+                                                // TIME COMPLEXITY - O(n) 
 void insele(int t[],int &c,int s)
 {
         int n,pos,j;
@@ -121,6 +129,7 @@ void insele(int t[],int &c,int s)
 }
 
                                                 // Finding Highest Value in an Array
+                                                // TIME COMPLEXITY - O(n) 
 int highval(int t[],int c)
 {
         int m=0;
@@ -133,6 +142,7 @@ int highval(int t[],int c)
 }
 
                                                 // Operation to Reverse an Array
+                                                // TIME COMPLEXITY - O(n) 
 void revarr(int t[],int s,int d) 
 {
         int temp;  
@@ -145,6 +155,7 @@ void revarr(int t[],int s,int d)
 }
 
                                                 // Operation to Find Second Highest Value in an Array
+                                                // TIME COMPLEXITY - O(n) 
 int secmax(int t[],int c)
 {
         int fmp=0;
@@ -165,7 +176,8 @@ int secmax(int t[],int c)
         return(smp);
 }
 
-                                                // Operation to Check if the Array is Sorted or not       
+                                                // Operation to Check if the Array is Sorted or not
+                                                // TIME COMPLEXITY - O(n)
 int checksort(int t[],int c)
 {
         for(int i=1;i<=c;i++)
@@ -177,6 +189,7 @@ int checksort(int t[],int c)
 }
 
                                                 // Operation to remove duplicate element from Sorted Array
+                                                // TIME COMPLEXITY - O(n)
 void removedupsorted(int t[],int &c)
 {
         int i,j=0;
@@ -190,6 +203,7 @@ void removedupsorted(int t[],int &c)
 }
 
                                                 // Operation to Seprate Odd & Even Elements at Two Ends of Array
+                                                // TIME COMPLEXITY - O(n)
 void oddeve(int t[],int &c)
 {
         int i,j,temp;
@@ -217,6 +231,7 @@ void oddeve(int t[],int &c)
 }
 
                                                 // Operation to Rotate Array 1 time Clockwise
+                                                // TIME COMPLEXITY - O(n)
 void rotclock1(int t[],int c)
 {
         int temp=t[c];
@@ -226,6 +241,7 @@ void rotclock1(int t[],int c)
 }
 
                                                 // Operation to Rotate Array N times Clockwise asked by User
+                                                // TIME COMPLEXITY - O(n)
 void  rotclockmul(int t[],int c)
 {
         int k;
@@ -238,6 +254,7 @@ void  rotclockmul(int t[],int c)
 }
 
                                                 // Operation to find Leader of an Array
+                                                // TIME COMPLEXITY - O(n)
 void leader(int t[],int c)
 {
         int max=t[c];
@@ -254,6 +271,7 @@ void leader(int t[],int c)
 }
 
                                                 // To find Maximum Differance of Values in Forward Direction of an Array
+                                                // TIME COMPLEXITY - O(n)
 int maxdiff(int t[],int c)
 {
         int max,min;
@@ -271,6 +289,7 @@ int maxdiff(int t[],int c)
 }
 
                                                 // To find Highest Count of an Element in Sorted Array
+                                                // TIME COMPLEXITY - O(n)
 void frequencysorted(int t[],int c)
 {
         int cnt=1;
