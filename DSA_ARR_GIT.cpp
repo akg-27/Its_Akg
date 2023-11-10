@@ -203,7 +203,7 @@ void removedupsorted(int t[],int &c)
 }
 
                                                 // Operation to Seprate Odd & Even Elements at Two Ends of Array
-                                                // TIME COMPLEXITY - O(n)
+                                                // TIME COMPLEXITY - O(n) same variable is working under both loops thats why order by (n)
 void oddeve(int t[],int &c)
 {
         int i,j,temp;
