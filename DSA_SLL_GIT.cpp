@@ -7,7 +7,7 @@ struct Node
     int data;
     Node *next;
 };
-Node *start = NULL; // Start pointer points at start of DLL
+Node *start = NULL; // Start pointer points at start of SLL
 
 // Function to create New Node
 Node *createNode()
